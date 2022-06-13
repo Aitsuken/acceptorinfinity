@@ -6,5 +6,5 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class UserDetailsService {
+public class CustomUserDetailsService {
 }
