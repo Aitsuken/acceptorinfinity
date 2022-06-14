@@ -14,14 +14,14 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExample04">
+    <div class="collapse navbar-collapse" id="navbarsExample03">
         <ul class="navbar-nav mr-auto">
             <!--            <li class="nav-item" th:class="${#httpServletRequest.requestURI.contains('home')} ? 'nav-link active' : 'nav-link'">-->
             <li th:class="${activePage == 'home'} ? 'nav-item active' : 'nav-item'">
                 <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
             </li>
             <li th:class="${activePage == 'show conversations'} ? 'nav-item active' : 'nav-item'">
-                <a class="nav-link" th:href="@{/show}">Show<span class="sr-only">(current)</span></a>
+                <a class="nav-link" th:href="@{/conversation}">Conversations<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>

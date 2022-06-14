@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Show</title>
+    <title>Conversation List</title>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
@@ -11,14 +11,20 @@
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
+<br/><br/>
+
+<div class="container-md">
+    <a th:href="@{/addConversation}" class="btn btn-primary">Add Conversation</a>
+    <a th:href="@{/addCategory}" class="btn btn-success">Add Category</a>
+</div>
 
 <div class="container">
-
+    <br>
     <h3>List of Conversations</h3>
 
-    <hr/>
-    <a th:href="@{/addConversation}" class="btn btn-primary">Add Conversation</a>
-    <br/><br/>
+
+
+
     <table class="table table-bordered table-striped">
 
         <thead>

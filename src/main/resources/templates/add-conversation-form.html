@@ -9,8 +9,13 @@
           crossorigin="anonymous" />
 </head>
 <body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<br>
+<br>
 
 <div class="container">
+
 
     <h3>Add New Conversation</h3>
     <hr/>
@@ -29,7 +34,7 @@
 
     </form>
     <hr/>
-    <a th:href="@{/show}">Show List</a>
+    <a th:href="@{/conversation}">Go back to list page</a>
 </div>
 
 </body>

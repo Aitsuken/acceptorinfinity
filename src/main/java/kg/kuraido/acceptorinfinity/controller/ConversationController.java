@@ -25,9 +25,9 @@ public class ConversationController {
     }
 
 
-    @GetMapping({"/getAllConversations", "/show"})
+    @GetMapping({"/getAllConversations", "/conversation"})
     public ModelAndView getAllConversations(){
-        ModelAndView mav = new ModelAndView("show");
+        ModelAndView mav = new ModelAndView("conversation");
         mav.addObject("conversations", conversationRepo.findAll());
         return mav;
     }
@@ -42,9 +42,22 @@ public class ConversationController {
     @PostMapping("/saveConversation")
     public String saveConversation(@ModelAttribute Conversation conversation){
         conversationRepo.save(conversation);
-        return "redirect:/show";
+        return "redirect:/conversation";
+    }
+    @GetMapping("/addCategory")
+    public ModelAndView addCategory(){
+        ModelAndView mav = new ModelAndView("add-category-form");
+        Category newCategory = new Category();
+        mav.addObject("category", newCategory);
+        return mav;
+    }
+    @PostMapping("/saveCategory")
+    public String saveCategory(@ModelAttribute Category category){
+        categoryRepo.save(category);
+        return "redirect:/conversaton";
     }
 
+    //show and select categories in dropdown when adding
     @ModelAttribute("categories")
     public List<Category> getCategories(){
         return categoryRepo.findAll();

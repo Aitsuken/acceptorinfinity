@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Category</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous" />
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<br>
+<br>
+
+<div class="container">
+
+
+  <h3>Add New Category</h3>
+  <hr/>
+
+  <form th:action="@{/saveCategory}" th:object="${category}" method="POST">
+
+    <input type="text" th:field="*{name}" class="form-control col-4 mb-4" placeholder="Enter name" />
+
+    <button type="submit" class="btn btn-primary col-2">Save</button>
+
+  </form>
+  <hr/>
+  <a th:href="@{/conversation}">Go back to conversations list page</a>
+</div>
+
+</body>
+</html>
