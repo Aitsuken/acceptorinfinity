@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
-@RequestMapping("/user/signup")
+@RequestMapping("/auth/signup")
 public class AuthController {
     private AccountService accountService;
 
@@ -31,6 +31,6 @@ public class AuthController {
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") AccountDto accountDto){
         accountService.save(accountDto);
-        return "redirect:/signup?success";
+        return "redirect:/auth/signup?success";
     }
 }

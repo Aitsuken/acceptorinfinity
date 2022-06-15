@@ -4,22 +4,17 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class AccountDto {
-    @NotNull
-    @NotEmpty
     private String name;
 
 
-    @NotNull
-    @NotEmpty
     private String password;
-    @NotNull
-    @NotEmpty
     private String email;
 
     public AccountDto(){
 
     }
     public AccountDto(String name, String password, String email) {
+        super();
         this.name = name;
         this.password = password;
         this.email = email;
