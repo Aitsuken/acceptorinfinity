@@ -31,6 +31,6 @@ public class AuthController {
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") AccountDto accountDto){
         accountService.save(accountDto);
-        return "redirect:/auth/signup?success";
+        return "redirect:/?success";
     }
 }

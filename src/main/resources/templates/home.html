@@ -10,6 +10,11 @@
 
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
+<br>
+<br>
+<div th:if="${param.success}">
+    <div class="alert alert-info">Registration was successful!</div>
+</div>
 <h1 >Welcome to acceptor infinity!</h1>
 <p>Go to Conversation section</p>
 

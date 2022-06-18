@@ -5,6 +5,8 @@ import kg.kuraido.acceptorinfinity.model.Account;
 import kg.kuraido.acceptorinfinity.model.Role;
 import kg.kuraido.acceptorinfinity.repository.AccountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -24,5 +26,10 @@ public class AccountServiceImpl implements AccountService{
                 accountDto.getPassword(), Arrays.asList(new Role("ROLE_USER")));
 
         return accountRepo.save(user);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 }
