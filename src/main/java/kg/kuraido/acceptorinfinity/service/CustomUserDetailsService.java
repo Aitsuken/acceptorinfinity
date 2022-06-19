@@ -8,14 +8,15 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-@Service
-@Transactional
-public class CustomUserDetailsService implements UserDetailsService {
-    private final AccountRepo accountRepo;
-
-    public CustomUserDetailsService(AccountRepo accountRepo) {
-        this.accountRepo = accountRepo;
-    }
-
-    public UserDetails 
-}
+//@Service
+//@Transactional
+//public class CustomUserDetailsService implements UserDetailsService {
+//    private final AccountRepo accountRepo;
+//
+//    public CustomUserDetailsService(AccountRepo accountRepo) {
+//        this.accountRepo = accountRepo;
+//    }
+//
+//
+//public UserDetails
+//}

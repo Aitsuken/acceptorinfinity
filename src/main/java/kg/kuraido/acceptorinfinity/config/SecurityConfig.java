@@ -55,7 +55,7 @@ public class SecurityConfig {
     @Bean
     protected InMemoryUserDetailsManager configureAuthentication() {
         List<UserDetails> userDetails = new ArrayList<>();
-        userDetails.add(new Account());
+        //userDetails.add(new Account());
         return new InMemoryUserDetailsManager();
     }
 
@@ -93,4 +93,23 @@ public class SecurityConfig {
     }
 
 
+
+    //Ldap authentication
+    @Bean
+    public EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean() {
+        EmbeddedLdapServerContextSourceFactoryBean contextSourceFactoryBean =
+                EmbeddedLdapServerContextSourceFactoryBean.fromEmbeddedLdapServer();
+        contextSourceFactoryBean.setPort(0);
+        return contextSourceFactoryBean;
+    }
+
+    @Bean
+    AuthenticationManager ldapAuthenticationManager(
+            BaseLdapPathContextSource contextSource) {
+        LdapBindAuthenticationManagerFactory factory =
+                new LdapBindAuthenticationManagerFactory(contextSource);
+        factory.setUserDnPatterns("uid={0},ou=people");
+        factory.setUserDetailsContextMapper(new PersonContextMapper());
+        return factory.createAuthenticationManager();
+    }
 }

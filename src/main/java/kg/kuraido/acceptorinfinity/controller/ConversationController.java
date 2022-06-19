@@ -54,7 +54,7 @@ public class ConversationController {
     @PostMapping("/saveCategory")
     public String saveCategory(@ModelAttribute Category category){
         categoryRepo.save(category);
-        return "redirect:/conversaton";
+        return "redirect:/conversation";
     }
 
     //show and select categories in dropdown when adding
