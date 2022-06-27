@@ -109,7 +109,7 @@ public class SecurityConfig {
         LdapBindAuthenticationManagerFactory factory =
                 new LdapBindAuthenticationManagerFactory(contextSource);
         factory.setUserDnPatterns("uid={0},ou=people");
-        factory.setUserDetailsContextMapper(new PersonContextMapper());
+        //factory.setUserDetailsContextMapper(new PersonContextMapper());
         return factory.createAuthenticationManager();
     }
 }

@@ -33,6 +33,8 @@
             <th>Question</th>
             <th>Answer</th>
             <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -41,6 +43,8 @@
             <td th:text="${conversation.question}" />
             <td th:text="${conversation.answer}" />
             <td th:text="${conversation.category}"/>
+            <td> <i class="bi bi-pen"></i> <td/>
+            <td> <i class="bi bi-trash"></i> <td/>
         </tr>
         </tbody>
 

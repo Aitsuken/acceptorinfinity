@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Set;
 
 @Service
 public class AccountServiceImpl implements AccountService{
@@ -23,7 +24,7 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public Account save(AccountDto accountDto){
         Account user = new Account(accountDto.getName(), accountDto.getEmail(),
-                accountDto.getPassword(), Arrays.asList(new Role("ROLE_USER")));
+                accountDto.getPassword());
 
         return accountRepo.save(user);
     }

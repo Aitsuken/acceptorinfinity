@@ -8,35 +8,42 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "account", uniqueConstraints = @UniqueConstraint(columnNames = "user_name"))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "user_name"))
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "user_name")
+    @Column(nullable = false)
     private String name;
-    @Column(name = "user_email")
+
+    @Column(nullable = false, unique = true)
     private String email;
-    @Column(name = "user_password")
+
+    @Column
     private String password;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
+    public void addRole(Role role){
+        this.roles.add(role);
+    }
 
     public Account() {
     }
 
-    public Account(String name, String email, String password, Collection<Role> roles) {
-        super();
+    public Account(String name, String email, String password, Set<Role> roles) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -75,11 +82,11 @@ public class Account {
         this.password = password;
     }
 
-    public Collection<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 }
